@@ -1,5 +1,6 @@
 import React from 'react';
-import {InputGroup, Button } from "react-bootstrap"; 
+import { View } from 'react-native';
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import LocationSearchInput from './AutoCompleteComponent';
@@ -7,20 +8,10 @@ import LocationSearchInput from './AutoCompleteComponent';
 
 function ZipcodeField (props) {
     return (
-        <InputGroup style={{ width: '30rem' }}>
+        <View>
             <LocationSearchInput />
-            <Button 
-            variant="outline-warning" 
-            id="button-addon2">
-                {/* <FontAwesomeIcon icon={faMapMarkerAlt} /> */}
-            </Button>
-            <Button 
-                onClick={()=> props.changeShow(false)}
-                variant="outline-warning" 
-                id="button-addon2">
-                Search
-            </Button>
-        </InputGroup>
+        </View>
+        
     )
 };
 

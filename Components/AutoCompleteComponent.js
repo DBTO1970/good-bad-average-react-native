@@ -4,6 +4,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import { View } from 'react-native';
+
 // import {GoogleApiWrapper} from 'google-maps-react';
 
  
@@ -30,8 +32,8 @@ class LocationSearchInput extends React.Component {
  
   render() {
     return (
-        <div id="googleMap">
-            <PlacesAutocomplete
+        <View id="googleMap">
+            {/* <PlacesAutocomplete
                 value={this.state.address}
                 onChange={this.handleChange}
                 onSelect={this.handleSelect}
@@ -68,8 +70,8 @@ class LocationSearchInput extends React.Component {
                     </div>
                 </InputGroup>
                 )}
-            </PlacesAutocomplete>
-        </div>
+            </PlacesAutocomplete> */}
+        </View>
     );
   }
 }
