@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, 
     ImageBackground } from 'react-native';
 import { Image } from 'react-native-elements';
-
+import Header from './HeaderComponent';
 import ZipcodeField from './ZipCodeSearchComponent';
 
 class Home extends Component {
@@ -10,19 +10,14 @@ class Home extends Component {
     render() {
         return(
             <View style={styles.container} >
+                <Header />
                 <ImageBackground 
                     source={require('./images/Heroimg2.jpg')}
                     resizeMode='cover'
                     style={styles.image} 
                 >
-                <Image 
-                    source={require('./images/logo.png')}
-                    style={styles.headerImage}
-                />
-                <Text
-                    style={styles.headerText}>
-                    The Good, The Bad, & The Average
-                </Text>
+                
+                
                 <ZipcodeField />
                 </ImageBackground>
             </View>

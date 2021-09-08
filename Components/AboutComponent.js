@@ -7,8 +7,8 @@ class About extends Component {
     render () {
         return (
             <View >
-                <Text>
-                    <h1 style={styles.heroTitle}>About this project</h1>
+                <Text style={styles.heroTitle}
+                >About this project
                 </Text>
                 <Text style={styles.heroTitle}>
                     <Text>The Project</Text>
