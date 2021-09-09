@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, 
     ImageBackground } from 'react-native';
-import { Image } from 'react-native-elements';
 import Header from './HeaderComponent';
-import ZipcodeField from './ZipCodeSearchComponent';
+import Navbar from './NavbarComponent';
 
 class Home extends Component {
 
     render() {
         return(
             <View style={styles.container} >
+                <Navbar />
                 <Header />
                 <ImageBackground 
                     source={require('./images/Heroimg2.jpg')}
                     resizeMode='cover'
                     style={styles.image} 
-                >
-                
-                
-                <ZipcodeField />
-                </ImageBackground>
+                />
+
             </View>
            
         ); 
@@ -27,10 +24,7 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        // flex: 1,
-        // backgroundColor: '#28a6bb'
-    },
+   
     headerImage: {
         height:60,
         width:60,

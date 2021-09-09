@@ -17,7 +17,7 @@ class Header extends Component {
                     style={styles.headerImage}
                 />
                 <Text style={styles.headerSubText}>
-                    Find the best, worst, and most average-rated restaurant
+                    Find the best, worst,{'\n'} and most average-rated restaurant
                 </Text>
             </View>
         );
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         color: '#fff',
         fontWeight: 'bold',
-        justifyContent: 'center',
+        textAlign: 'center',
         margin: 10,
         marginTop: 80
     },
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
-        justifyContent: 'center'
+        textAlign: 'center'
     }
     
 })
