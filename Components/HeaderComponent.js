@@ -7,17 +7,18 @@ class Header extends Component {
     render() {
         return(
             <View style={styles.container}>
-                
-                <Text
-                    style={styles.headerText}>
-                    The Good, The Bad, & The Average
-                </Text>
                 <Image 
                     source={require('./images/logo.png')}
                     style={styles.headerImage}
                 />
+                <Text
+                    style={styles.headerText}>
+                    The Good, The Bad, & The Average
+                </Text>
+                
                 <Text style={styles.headerSubText}>
-                    Find the best, worst,{'\n'} and most average-rated restaurant
+                    Find the best, worst,{'\n'}
+                     and most average-rated restaurant
                 </Text>
             </View>
         );
@@ -28,14 +29,16 @@ const styles = StyleSheet.create({
     container: {
         
         backgroundColor: '#28a6bb',
-        alignItems: 'center'
+        alignItems: 'center',
+        
+        paddingTop: 30,
     },
     headerImage: {
         height:100,
         width:100,
-        margin: 10,
+
         marginTop: 20,
-        justifyContent: 'center',
+        // justifyContent: 'center',
         
         
     },
@@ -44,18 +47,23 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
-        margin: 10,
-        marginTop: 80
+        marginTop: 20,
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 10
     },
     image: {
         flex: 1,
-        justifyContent: 'center'
+        // justifyContent: 'center'
     },
     headerSubText: {
         color: '#fff',
         fontSize: 16,
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 20
     }
     
 })

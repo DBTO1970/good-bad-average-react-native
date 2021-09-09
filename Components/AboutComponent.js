@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Card } from 'react-native-elements';
 
 
 
 class About extends Component {
     render () {
         return (
-            <View >
-                <Text style={styles.heroTitle}
-                >About this project
-                </Text>
-                <Text style={styles.heroTitle}>
-                    <Text>The Project</Text>
-                    <Text> Type in your zip code and the site will show you the best, worst, and most average-rated restaurant near you.</Text>
-                </Text>  
-                <Text style={styles.heroTitle}>
-                        <Text>Technicals</Text>
-                    <Text>React, Bootstrap, and instert APIs What other details are relevant?</Text>
-                    <Link href="#" className="mb-4">Here's the Github</Link>  
-                </Text>
-                <Text style={styles.heroTitle}>
-                    <Text>The Team</Text>
-                    <Text>Don Barto and Esteban Porras</Text>
-                </Text> 
+            <View  >
+                <Card containerStyle={{backgroundColor: '#28a6bb'}}>
+                    <Text style={styles.heroTitle}
+                    >About this project
+                    </Text>
+                    <Text style={styles.heroTitle}>
+                    The Project: {"\n"}
+                        Type in your zip code and the site will show you the best, worst, and most average-rated restaurant near you.
+                    </Text>  
+                    <Text style={styles.heroTitle}>
+                        Technicals: {"\n"}
+                        React, React Native, Axio, Bootstrap, Yelp Fusion API, Google Maps API
+                        {/* <Link href="https://github.com/DBTO1970/good-bad-average-react-native" className="mb-4">Here's the Github</Link>   */}
+                    </Text>
+                    <Text style={styles.heroTitle}>
+                        The Team:{"\n"}
+                        Don Barto and Esteban Porras
+                    </Text> 
+                </Card>
             </View>
         )
     };
@@ -31,7 +34,8 @@ class About extends Component {
 const styles = StyleSheet.create({
     heroTitle: {
         marginTop: 5,
-        marginBottom: 5
+        marginBottom: 5,
+        color: '#fff'
     }
 })
 export default About;
