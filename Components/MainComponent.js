@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, ActivityIndicator } from 'react-native';
 import { Input } from 'react-native-elements';
-import GoodBusiness from './GoodComponent';
 import About from './AboutComponent';
 import Header from './HeaderComponent';
 
