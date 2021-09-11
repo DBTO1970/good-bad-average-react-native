@@ -30,10 +30,10 @@ const GoodBusiness = () => {
         <View>
             <Text style={{color: 'black'}}>The Good</Text>
             <Card>
-                <Text>{data.name}</Text>
-                <Text>{goodItem.props.categories}</Text>
+                <Text>The Good</Text>
+                {/* <Text>{goodItem.props.categories}</Text>
                 <Image source={goodItem.props.image_url} />
-                <Text>{goodItem.props.rating}</Text>
+                <Text>{goodItem.props.rating}</Text> */}
             </Card>
 
         </View>
