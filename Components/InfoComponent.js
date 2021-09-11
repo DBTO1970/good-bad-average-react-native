@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
-import axios from 'axios';
+import { View, Text } from 'react-native';
+import BusinessCard from './BusinessCard';
 
 class InfoComponent extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class InfoComponent extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const axios = require('axios');
         console.log('component did mount');
         const config = {
@@ -23,23 +23,23 @@ class InfoComponent extends Component {
         };
 
     axios(config)
-    .then(function (response) {
-        this.setState({business: response.data.businesses[0]});    
+    .then((response) => {
+        this.setState({business: response.data.businesses[0]});
+        console.log(response.data.businesses[0]);
     })
     .catch(function (error) {
     console.log(error);
     });
 
-    
+
     }
     
     render() {
-        return (
-            <Text style={{color: 'white'}}>Working</Text>
-            );
+        return <View>
+            <Text>working on it</Text>
+        </View>
     }
-       
-        
+     
 
 }
 
