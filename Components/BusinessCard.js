@@ -4,8 +4,8 @@ import { Card, Image } from 'react-native-elements';
 
 
 
-const BusinessCard = ({item}) => {
-    
+const BusinessCard = (item) => {
+    const {good} = item;
     
     return (
         <View>
@@ -13,8 +13,8 @@ const BusinessCard = ({item}) => {
             <Card>
                 <Text style={{color: 'black'}}>{item.name}</Text>
                 {/* <Text>{item.categories.title}</Text> */}
-                <Image source={this.image_url} />
-                <Text>{this.rating}</Text>
+                <Image source={item.image_url} />
+                <Text>{item.rating}</Text>
             </Card>
 
         </View>

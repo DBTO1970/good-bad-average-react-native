@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import BusinessCard from './BusinessCard';
+import { BaseUrl } from '../Shared/BaseUrl';
+import LocationSearch from './LocationSearchComponent';
+
+const location = 'Towson';
 
 class InfoComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            business: null
+            business: null,
+            
         }
     }
 
+
     componentDidMount() {
+        
         const axios = require('axios');
         console.log('component did mount');
         const config = {
             method: 'get',
-            url: 'https://api.yelp.com/v3/businesses/search?term="restaurant"&location="baltimore"&sort_by=rating&limit=50',
+            url: BaseUrl + location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'
@@ -24,8 +31,11 @@ class InfoComponent extends Component {
 
     axios(config)
     .then((response) => {
+        
+        console.log(response.data.businesses);
         this.setState({business: response.data.businesses[0]});
         console.log(response.data.businesses[0]);
+        console.log(BaseUrl + location + '"&sort_by=rating&limit=50');
     })
     .catch(function (error) {
     console.log(error);
@@ -36,7 +46,7 @@ class InfoComponent extends Component {
     
     render() {
         return <View>
-            <Text>working on it</Text>
+            <BusinessCard item={this.state} />
         </View>
     }
      
