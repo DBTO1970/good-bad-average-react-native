@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Main from './Components/MainComponent';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 
+const store = ConfigureStore();
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <Provider store={store}>
       <Main />
-    </View>
+    </Provider>
   );
 }
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import BusinessCard from './BusinessCard';
+
 import { BaseUrl } from '../Shared/BaseUrl';
-import LocationSearch from './LocationSearchComponent';
+
 
 const location = 'Towson';
 
@@ -10,7 +10,15 @@ class InfoComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            business: null,
+            business: {
+                resultId: null,
+                name: null,
+                rating: null,
+                location: null,
+                image_url: null,
+                lat: null,
+                lng: null
+            }
             
         }
     }
@@ -46,7 +54,7 @@ class InfoComponent extends Component {
     
     render() {
         return <View>
-            <BusinessCard item={this.state} />
+            
         </View>
     }
      
