@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, } from 'react-native';
 import Header from './HeaderComponent';
-import InfoComponent from './InfoComponent';
+import GoodInfo from './GoodInfoComponent';
+import BadInfo from './BadInfoComponent';
+import AverageInfo from './AverageInfoComponent';
 import LocationSearch from './LocationSearchComponent';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
@@ -25,7 +27,10 @@ class Main extends Component {
                     <Header style={styles.header} />
                     <LocationSearch />
                     
-                    <InfoComponent />
+                    <GoodInfo />
+                    <BadInfo />
+                    <AverageInfo />
+
 
                 </ImageBackground>
                 

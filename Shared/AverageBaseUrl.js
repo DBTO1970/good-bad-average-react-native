@@ -1,0 +1,1 @@
+export const AverageBaseUrl = 'restaurant worst"&location="';
