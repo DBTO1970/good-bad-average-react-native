@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { Card, Image } from 'react-native-elements';
+import { View, Text, Image} from 'react-native';
+import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
+import LocationSearch from './LocationSearchComponent';
 
 function MakeCard({business})  {
     if(business) {
@@ -13,7 +14,7 @@ function MakeCard({business})  {
                 <Text>The Good</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
-                <Image source={{uri: business.image_url}} />
+                
                 <Text>Location: {business.location.display_address}</Text>
             </Card>
 
@@ -28,9 +29,9 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Baltimore';
+const location = 'Las Vegas, NV';
 
-class InfoComponent extends Component {
+class GoodInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -80,4 +81,4 @@ class InfoComponent extends Component {
 
 }
 
-export default InfoComponent;
+export default GoodInfo;

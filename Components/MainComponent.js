@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, } from 'react-native';
+import { ImageBackground, StyleSheet, ScrollView } from 'react-native';
 import Header from './HeaderComponent';
 import GoodInfo from './GoodInfoComponent';
 import BadInfo from './BadInfoComponent';
@@ -24,12 +24,14 @@ class Main extends Component {
                         resizeMode='cover'
                         style={styles.image} 
                     >
+                    <ScrollView>
                     <Header style={styles.header} />
                     <LocationSearch />
                     
-                    <GoodInfo />
-                    <BadInfo />
-                    <AverageInfo />
+                        <GoodInfo />
+                        <BadInfo />
+                        <AverageInfo />
+                    </ScrollView>
 
 
                 </ImageBackground>

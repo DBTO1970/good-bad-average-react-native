@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 
+
+
 class LocationSearch extends Component {
     constructor(props) {
         super(props);
@@ -15,8 +17,11 @@ class LocationSearch extends Component {
         
     }
 
+    
+
 
     render(){
+      
         return(
             <View >
                 <View style={styles.locationSearch}>
@@ -42,7 +47,7 @@ class LocationSearch extends Component {
                         />
                     }
                     title="Show Me The Choices"
-                    onPress={ () => (console.log(this.state.location))}
+                    onPress={() => console.log(this.state.location)}
                     />
                 </TouchableOpacity>
                 
