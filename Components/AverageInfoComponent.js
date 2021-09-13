@@ -29,7 +29,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Baltimore';
+const location = 'Las Vegas, NV';
 
 class AverageInfo extends Component {
     constructor(props) {

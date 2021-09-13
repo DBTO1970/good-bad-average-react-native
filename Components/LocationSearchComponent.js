@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+import Results from './ResultsComponent';
+
+
 
 
 
@@ -17,12 +20,16 @@ class LocationSearch extends Component {
         
     }
 
-    
-
-
     render(){
-      
+        const renderResults = () => {
+            return (
+                <Results />
+            );
+        };
+
+    
         return(
+            
             <View >
                 <View style={styles.locationSearch}>
                     <TextInput
@@ -47,7 +54,7 @@ class LocationSearch extends Component {
                         />
                     }
                     title="Show Me The Choices"
-                    onPress={() => console.log(this.state.location)}
+                    onPress={() => console.log(location)}
                     />
                 </TouchableOpacity>
                 

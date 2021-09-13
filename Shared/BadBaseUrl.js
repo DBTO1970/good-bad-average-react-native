@@ -1,1 +1,1 @@
-export const BadBaseUrl = 'restaurant worst"&location="';
+export const BadBaseUrl = 'restaurant, worst"&location="';

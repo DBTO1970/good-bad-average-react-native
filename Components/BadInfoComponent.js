@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+
 import { Card, Image } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { BadBaseUrl } from '../Shared/BadBaseUrl';
+
+
 
 function MakeCard({business})  {
     if(business) {
@@ -28,7 +31,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Baltimore';
+const location = 'Las Vegas, NV';
 
 class BadInfo extends Component {
     constructor(props) {

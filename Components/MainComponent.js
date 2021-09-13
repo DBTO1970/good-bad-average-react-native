@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { ImageBackground, StyleSheet, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
+import { ImageBackground, StyleSheet, 
+    ScrollView, Platform, View } from 'react-native';
 import Header from './HeaderComponent';
 import GoodInfo from './GoodInfoComponent';
 import BadInfo from './BadInfoComponent';
 import AverageInfo from './AverageInfoComponent';
 import LocationSearch from './LocationSearchComponent';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-
-
+import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
 
 class Main extends Component {
     
@@ -18,23 +17,30 @@ class Main extends Component {
     render() {
    
         return(
-                
-                <ImageBackground 
-                        source={require('./images/Heroimg2.jpg')}
-                        resizeMode='cover'
-                        style={styles.image} 
-                    >
-                    <ScrollView>
-                    <Header style={styles.header} />
-                    <LocationSearch />
-                    
-                        <GoodInfo />
+                <View 
+                    style={{
+                        flex: 1,
+                        paddingTop: 
+                            Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+                    }} >
+                    <ImageBackground 
+                            source={require('./images/Heroimg2.jpg')}
+                            resizeMode='cover'
+                            style={styles.image} 
+                        >
+                        <ScrollView>
+                        <Header style={styles.header} />
+                        <LocationSearch />
+                        <GoodBaseUrl />
                         <BadInfo />
                         <AverageInfo />
-                    </ScrollView>
+                        
+                        </ScrollView>
 
 
-                </ImageBackground>
+                    </ImageBackground>
+                    
+                </View>
                 
            
         );
@@ -46,6 +52,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
+        
         
     },
     header: {
