@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
 import Constants from 'expo-constants';
-import Results from './ResultsComponent';
-import ResultsInfo from './ResultsInfo';
-import { BUSINESSES } from '../Shared/results';
-import BusinessInfo from './ResultsInfo';
-import { View, Platform } from 'react-native';
+import Businesses from './BusinessesComponent';
+import BusinessInfo from './BusinessInfoComponent';
+import About from './AboutComponent';
+import Home from './HomeComponent';
+import { connect } from 'react-redux';
+import {fetchBusinesses, fetchSearch} from '../redux/ActionCreators';
+import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
+import { Icon } from 'react-native-elements';
+import SafeAreaView  from 'react-native-safe-area-context';
 
+const mapDispatchToProps = {
+    fetchBusinesses,
+    fetchSearch,
+};
 
-const ResultsNavigator = createStackNavigator(
+const BusinessNavigator = createStackNavigator(
     {
-        Results: { screen: ResultsComponent},
-        ResultsInfo: { screen: ResultsInfo}
+        businesses: { 
+            screen: Businesses,
+            navigationOptions: ({navigation}) => 
+            ({
+                headerLeft: <Icon
+                    name='list'
+                    type='font-awesome'
+                    
+                    onPress={() => navigation.toggleDrawer()}
+                    />
+            })
+        },
+        BusinessInfo: { screen: BusinessInfo}
     },
     {
-        initialRouteName: 'Results',
+        initialRouteName: 'Businesses',
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#28a6bb'
@@ -27,7 +46,7 @@ const ResultsNavigator = createStackNavigator(
             }
         }
     }
-)
+);
 
 const HomeNavigator = createStackNavigator(
     {
@@ -42,26 +61,121 @@ const HomeNavigator = createStackNavigator(
             headerTintColor: '#fff',
             headerTitleStyle: {
                 color: '#fff'
-            }
+            },
+            headerLeft: <Icon 
+                name= 'home'
+                type= 'font-awesome'
+                
+                onPress={() => navigation.toggleDrawer()}
+                />
         }
     }
-)
+);
 
-const MainNavigator = createStackNavigator(
+const AboutNavigator = createStackNavigator(
     {
-        Home: { screen: HomeNavigator },
-        Results: { screen: ResultsNavigator}
+        About: { screen: About }
     },
     {
-       drawerBackgroundColor: '#CEC8FF'
+       
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#28a6bb'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            },
+            headerLeft: <Icon 
+                name='info-circle'
+                type='font-awesome'
+                
+                onPress={() => navigation.toggleDrawer()}
+            />
+        }
+    }
+);
+
+const CustomDrawerComponent = props => (
+    <ScrollView>
+        <SafeAreaView 
+            style={styles.container}
+            forceInset={{top: 'always', horizontal: 'never'}}
+        >
+            <View style={styles.drawerHeader}>
+                <View style={{flex: 1}}>
+                    <Image 
+                        source={require('./images/logo.png')}
+                        style={styles.drawerImage} />
+                </View>
+                <View style={{flex: 2}}>
+                    <Text style={styles.drawerHeaderText}>
+                        The Good, The Bad & The Average
+                    </Text>
+                </View>
+            </View>
+            <DrawerItems {...props} />
+        </SafeAreaView>
+    </ScrollView>
+);
+const MainNavigator = createStackNavigator(
+    {
+        Home: { 
+            screen: HomeNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon 
+                        name='home'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+         },
+        Businesses: { 
+            screen: BusinessNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon 
+                        name='list'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        },
+        About: { 
+            screen: AboutNavigator,
+            navigationOptions: {
+                drawerLabel: 'About The Project',
+                drawerIcon: ({tintColor}) => (
+                    <Icon 
+                        name='info-circle'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                    />
+                )
+            }
+        }
+    },
+    {
+       drawerBackgroundColor: '#CEC8FF',
+       contentComponent: CustomDrawerComponent
     }
 )
 
-const AppNavigator = createAppContainer(ResultsNavigator);
+const AppNavigator = createAppContainer(BusinessNavigator);
 
 class Main extends Component {
        
-    
+    componentDidMount() {
+        this.props.fetchBusinesses();
+        this.props.fetch();
+
+    }
     
     render() {
    
@@ -77,5 +191,29 @@ class Main extends Component {
     }
 }
 
+const styles= StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    drawerHeader: {
+        backgroundColor: '#28a6bb',
+        height: 140,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        flexDirection: 'row'
+    },
+    drawerHeaderText: {
+        color: '#fff',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
+    drawerImage: {
+        margin: 10,
+        height: 60,
+        width: 60
+    },  
+    
+});
 
-export default Main;
+export default connect(null, mapDispatchToProps)(Main);

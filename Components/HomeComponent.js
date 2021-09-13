@@ -1,15 +1,34 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { Card } from 'react-natrive-elements';
-import { BUSINESSES } from '../Shared/results';
+import { Card } from 'react-native-elements';
+import { connect } from 'react-redux';
+import Loading from './LoadingComponent';
 
+const mapStateToProps = state => {
+    return {
+        businesses: state.businesses,
+       
+    };
+}
 
-function RenderItem({item}) {
+function RenderItem(props) {
+    const {item} = props;
+
+    if(props.isLoading) {
+        return <Loading />
+    }
+    if (props.errMess) {
+        return (
+            <View>
+                <Text>{props.errMess}</Text>
+            </View>
+        );
+    }
     if (item) {
         return (
             <Card 
                 featuredTitle={item.name}
-                image={require(item.image_url)}
+                // image={require(item.image_url)}
                 >
                     <Text style={{margin: 10}}>
                         {item.rating}
@@ -24,7 +43,7 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state={
-            results: BUSINESSES,
+            businesses: BUSINESSES,
 
         };
     }
@@ -36,13 +55,19 @@ class Home extends Component {
         return (
            <ScrollView>
                <RenderItem 
-               item={this.state.results.filter(business => business.good)[0]}
+               item={this.props.businesses.businesses.filter(business => business.good)[0]}
+               isLoading={this.props.businesses.isLoading}
+               errMess={this.props.businesses.errMess}
                />
                <RenderItem 
-               item={this.state.results.filter(business => business.bad)[0]}
+               item={this.props.businesses.businesses.filter(business => business.bad)[0]}
+               isLoading={this.props.businesses.isLoading}
+               errMess={this.props.businesses.errMess}
                />
                <RenderItem 
-               item={this.state.results.filter(business => business.average)[0]}
+               item={this.props.businesses.businesses.filter(business => business.average)[0]}
+               isLoading={this.props.businesses.isLoading}
+               errMess={this.props.businesses.errMess}
                />
            </ScrollView>
         );
@@ -51,4 +76,4 @@ class Home extends Component {
   
 }
 
-export default Home;
+export default connect(mapStateToProps)(Home);

@@ -1,32 +1,32 @@
 import * as ActionTypes from './ActionTypes';
 
-export const results = ( state = {
+export const businesses = ( state = {
     isLoading: true,
     errMess: null,
-    results: []}, action) => {
+    businesses: []}, action) => {
 
         switch (action.type) {
-            case ActionTypes.GIVE_RESULTS:
+            case ActionTypes.GIVE_BUSINESSES:
                 return {
                     ...state, 
                     isLoading: false, 
                     errMess: null, 
-                    results: action.payload
+                    businesses: action.payload
                 };
             
-            case ActionTypes.RESULTS_LOADING:
+            case ActionTypes.BUSINESSES_LOADING:
                 return {
                     ...state, 
                     isLoading: true, 
                     errMess: null, 
-                    results: []
+                    businesses: []
                 };
 
-            case ActionTypes.RESULTS_FAILED:
+            case ActionTypes.BUSINESSES_FAILED:
                 return {
                     ...state,
                     isLoading: false, 
-                    results: [], 
+                    businesses: [], 
                     errMess: action.payload
                 };
 

@@ -6,5 +6,6 @@ export const BUSINESSES = () => {
     const good = BUSINESS_BEST[0];
     const bad = BUSINESS_WORST[-1];
     const average= BUSINESS_WORST[0];
-    return (console.log(RESULTS));
+    return (console.log(businesses));
 };
+

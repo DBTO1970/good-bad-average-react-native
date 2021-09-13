@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, ScrollView, } from 'react-native';
 import { Card } from 'react-native-elements';
 
 
 
 class About extends Component {
+    
+    static navigationOptions = {
+        title: 'About The Project'
+    }
     render () {
         return (
-            <View  >
+            <ScrollView  >
                 <Card containerStyle={{backgroundColor: '#28a6bb'}}>
                     <Text style={styles.heroTitle}
                     >About this project
@@ -18,7 +22,7 @@ class About extends Component {
                     </Text>  
                     <Text style={styles.heroTitle}>
                         Technicals: {"\n"}
-                        React, React Native, Axio, Bootstrap, Yelp Fusion API, Google Maps API
+                        React, React Native, React Native Elements, Axio, Yelp Fusion API, Google Maps API
                         {/* <Link href="https://github.com/DBTO1970/good-bad-average-react-native" className="mb-4">Here's the Github</Link>   */}
                     </Text>
                     <Text style={styles.heroTitle}>
@@ -26,7 +30,7 @@ class About extends Component {
                         Don Barto and Esteban Porras
                     </Text> 
                 </Card>
-            </View>
+            </ScrollView>
         )
     };
 };

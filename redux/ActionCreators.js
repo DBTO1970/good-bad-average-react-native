@@ -30,10 +30,10 @@ export const searchLocation = search => ({
     payload: search
 });
 
-export const fetchResults = () => dispatch => {
-    dispatch(resultsLoading());
+export const fetchBusinesses = () => dispatch => {
+    dispatch(businessesLoading());
 
-    return fetch('results')
+    return fetch('businesses')
     .then(response => {
         if (response.ok) {
             return response;
@@ -48,21 +48,21 @@ export const fetchResults = () => dispatch => {
         throw errMess;
     })
     .then(response => response.json())
-    .then(results => dispatch(giveResults(results)))
-    .catch(error => dispatch(resultsFailed(error.message)));
+    .then(businesses => dispatch(giveBusinesses(businesses)))
+    .catch(error => dispatch(businessesFailed(error.message)));
 };
 
-export const resultsLoading =() => ({
-    type: ActionTypes.RESULTS_LOADING
+export const businessesLoading =() => ({
+    type: ActionTypes.BUSINESSES_LOADING
 });
 
-export const resultsFailed = () => ({
-    type: ActionTypes.RESULTS_FAILED,
+export const businessesFailed = () => ({
+    type: ActionTypes.BUSINESSES_FAILED,
     payload: errMess
 });
 
-export const giveResults = () => ({
-    type: ActionTypes.GIVE_RESULTS,
-    payload: results
+export const giveBusinesses = () => ({
+    type: ActionTypes.GIVE_BUSINESSES,
+    payload: businesses
 });
 
