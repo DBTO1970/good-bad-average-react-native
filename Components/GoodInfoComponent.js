@@ -28,7 +28,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Baltimore';
+const location = 'Springfield, VA';
 
 class InfoComponent extends Component {
     constructor(props) {
