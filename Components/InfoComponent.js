@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import BusinessCard from './BusinessCard';
 import { BaseUrl } from '../Shared/BaseUrl';
-import LocationSearch from './LocationSearchComponent';
+import { location } from './LocationSearchComponent';
 
-const location = 'Towson';
+
 
 class InfoComponent extends Component {
     constructor(props) {

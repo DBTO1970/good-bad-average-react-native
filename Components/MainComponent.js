@@ -3,6 +3,9 @@ import { ImageBackground, StyleSheet, } from 'react-native';
 import Header from './HeaderComponent';
 import InfoComponent from './InfoComponent';
 import LocationSearch from './LocationSearchComponent';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createAppContainer } from 'react-navigation';
 
 
 

@@ -12,7 +12,7 @@ class LocationSearch extends Component {
 
     handleTextEnter() {
         this.setState({location: toString()});
-        console.log(this.state.location)
+        
     }
 
 
@@ -51,8 +51,6 @@ class LocationSearch extends Component {
     }
     
 }
-
-
 
 const styles = StyleSheet.create({
     locationSearch: {
