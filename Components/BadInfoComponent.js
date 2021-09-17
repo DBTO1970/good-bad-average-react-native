@@ -16,7 +16,7 @@ function MakeCard({business})  {
                 <Text>The Bad</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
-               
+                {/* <Image source={business.image_url} /> */}
                 <Text>Location: {business.location.display_address}</Text>
             </Card>
 
@@ -31,7 +31,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Las Vegas, NV';
+const location = 'Springfield, VA';
 
 class BadInfo extends Component {
     constructor(props) {

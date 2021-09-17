@@ -29,7 +29,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Las Vegas, NV';
+const location = 'Springfield, VA';
 
 class GoodInfo extends Component {
     constructor(props) {
