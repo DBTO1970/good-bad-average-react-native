@@ -7,27 +7,36 @@ import Results from './ResultsComponent';
 
 
 
+
 class LocationSearch extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            location: 'Washington, DC',
+            location: '',
         }
     }
 
     handleTextEnter() {
+        
         this.setState({location: toString()});
+        console.log(this.state.location)
         
     }
 
-    render(){
-        const renderResults = () => {
+    componentDidMount(){
+        if (!this.state.location) {
             return (
-                <Results />
+                this.setState({location: 'Washington, DC'})
             );
-        };
+        } else {
+            return (this.state.location);
+        }
+    }
 
-    
+
+
+    render(){
+        
         return(
             
             <View >
@@ -54,7 +63,7 @@ class LocationSearch extends Component {
                         />
                     }
                     title="Show Me The Choices"
-                    onPress={() => console.log(location)}
+                    onPress={ (val) => (this.handleTextEnter(val))}
                     />
                 </TouchableOpacity>
                 
@@ -63,6 +72,8 @@ class LocationSearch extends Component {
     }
     
 }
+
+export const location = LocationSearch.location;
 
 const styles = StyleSheet.create({
     locationSearch: {

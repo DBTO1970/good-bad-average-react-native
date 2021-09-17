@@ -3,8 +3,9 @@ import { View, Text, Image} from 'react-native';
 import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
-import LocationSearch from './LocationSearchComponent';
+import { location } from './LocationSearchComponent';
 
+const {locataion} = props.location;
 function MakeCard({business})  {
     if(business) {
     return(
@@ -29,9 +30,9 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Springfield, VA';
 
-class GoodInfo extends Component {
+
+class GoodInfoComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,7 +44,7 @@ class GoodInfo extends Component {
     
 
     componentDidMount() {
-        
+        const location = this.props.location
         const axios = require('axios');
         console.log('component did mount');
         const config = {
@@ -81,4 +82,4 @@ class GoodInfo extends Component {
 
 }
 
-export default GoodInfo;
+export default GoodInfoComponent;
