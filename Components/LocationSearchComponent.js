@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+
 
 class LocationSearch extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            location: 'Washington, DC',
+            location: '',
         }
     }
 
     handleTextEnter() {
+        
         this.setState({location: toString()});
+        console.log(this.state.location)
         
     }
 
+    componentDidMount(){
+        if (!this.state.location) {
+            return (
+                this.setState({location: 'Washington, DC'})
+            );
+        } else {
+            return (this.state.location);
+        }
+    }
+
+
 
     render(){
+        
         return(
             <View >
                 <View style={styles.locationSearch}>
@@ -42,7 +57,7 @@ class LocationSearch extends Component {
                         />
                     }
                     title="Show Me The Choices"
-                    onPress={ () => (console.log(this.state.location))}
+                    onPress={ (val) => (this.handleTextEnter(val))}
                     />
                 </TouchableOpacity>
                 
@@ -51,6 +66,8 @@ class LocationSearch extends Component {
     }
     
 }
+
+export const location = LocationSearch.location;
 
 const styles = StyleSheet.create({
     locationSearch: {
