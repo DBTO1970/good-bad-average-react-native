@@ -5,7 +5,7 @@ import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
 import { location } from './LocationSearchComponent';
 
-const {locataion} = props.location;
+// const {locataion} = props.location;
 function MakeCard({business})  {
     if(business) {
     return(
