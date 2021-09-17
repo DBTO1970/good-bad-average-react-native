@@ -29,7 +29,7 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Springfield, VA';
+const location = 'Reston, VA';
 
 class AverageInfo extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class AverageInfo extends Component {
         this.state = {
             business: null,
             
-        }
+        };
     }
 
     
@@ -59,7 +59,7 @@ class AverageInfo extends Component {
     .then((response) => {
         
         
-        this.setState({business: response.data.businesses[(response.data.businesses.length / 2)]});
+        this.setState({business: response.data.businesses[0]});
         
 
     })

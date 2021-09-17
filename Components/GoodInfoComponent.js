@@ -38,7 +38,7 @@ class GoodInfoComponent extends Component {
         this.state = {
             business: null,
             
-        }
+        };
     }
 
     

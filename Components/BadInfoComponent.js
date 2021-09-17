@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-
 import { Card, Image } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { BadBaseUrl } from '../Shared/BadBaseUrl';
@@ -39,7 +38,7 @@ class BadInfo extends Component {
         this.state = {
             business: null,
             
-        }
+        };
     }
 
     
