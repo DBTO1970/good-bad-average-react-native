@@ -73,7 +73,7 @@ class LocationSearch extends Component {
     
 }
 
-export const location = LocationSearch.location;
+// export const location = LocationSearch.location;
 
 const styles = StyleSheet.create({
     locationSearch: {
