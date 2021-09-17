@@ -31,7 +31,7 @@ class Main extends Component {
                         <ScrollView>
                         <Header style={styles.header} />
                         <LocationSearch />
-                        <GoodBaseUrl />
+                        <GoodInfo />
                         <BadInfo />
                         <AverageInfo />
                         
