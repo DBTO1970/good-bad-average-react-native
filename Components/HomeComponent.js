@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import LocationSearch from './LocationSearchComponent';
+import { View} from 'react-native';
+import NewLocationSearch from './NewLocationSearchComponent';
+import Header from './HeaderComponent';
 
-class HomeScreen extends Component {
+class Home extends Component {
+  static navigationOptions = {
+    title: 'Home'
+  }
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>The Good</Text>
-        <Text>The Bad &</Text>
-        <Text>The Average</Text>
-        <LocationSearch />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Header styel={{top: 2}}/>
+        <NewLocationSearch />
       </View>
     );
   }
 }
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
-  },
-});
 
-export default createAppContainer(AppNavigator);
+export default Home;

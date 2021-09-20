@@ -3,10 +3,12 @@ import { StyleSheet, View } from 'react-native';
 import Main from './Components/MainComponent';
 
 
+
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Main />
+        <Main />
     </View>
   );
 }
@@ -16,4 +18,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch'
   },
-});
+}); 
+

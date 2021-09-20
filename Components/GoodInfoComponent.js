@@ -3,9 +3,9 @@ import { View, Text, Image} from 'react-native';
 import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
-import { location } from './LocationSearchComponent';
 
-// const {locataion} = props.location;
+
+
 function MakeCard({business})  {
     if(business) {
     return(
@@ -37,19 +37,19 @@ class GoodInfoComponent extends Component {
         super(props);
         this.state = {
             business: null,
-            
+            location: '',
         };
     }
 
     
 
     componentDidMount() {
-        const location = this.props.location
+
         const axios = require('axios');
         console.log('component did mount');
         const config = {
             method: 'get',
-            url: APIBaseUrl + GoodBaseUrl + location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + GoodBaseUrl + this.location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'

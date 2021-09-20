@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
-import Results from './ResultsComponent';
 
-
-
-
-
-
-class LocationSearch extends Component {
+class OldLocationSearch extends Component {
     constructor(props) {
         super(props);
         this.state= {
@@ -77,9 +71,9 @@ class LocationSearch extends Component {
 const styles = StyleSheet.create({
     locationSearch: {
         color: 'white',
-        backgroundColor: '#28a6bb',
+        backgroundColor: '#fff',
     }
 })
 
 
-export default LocationSearch;
+export default OldLocationSearch;

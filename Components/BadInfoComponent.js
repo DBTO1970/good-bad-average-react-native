@@ -30,13 +30,14 @@ function MakeCard({business})  {
     );
 }
 
-const location = 'Springfield, VA';
+
 
 class BadInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             business: null,
+            location: '',
             
         };
     }
@@ -49,7 +50,7 @@ class BadInfo extends Component {
         console.log('component did mount');
         const config = {
             method: 'get',
-            url: APIBaseUrl + BadBaseUrl + location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + BadBaseUrl + this.location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'

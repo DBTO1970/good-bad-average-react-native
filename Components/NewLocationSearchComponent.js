@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
+import GoodInfo from './GoodInfoComponent';
+import BadInfo from './BadInfoComponent';
+import AverageInfo from './AverageInfoComponent';
+import { ScrollView } from 'react-native-gesture-handler';
 import Results from './ResultsComponent';
 
-class LocationSearch extends Component {
+class NewLocationSearch extends Component {
     constructor(props) {
         super(props);
         this.state= {
@@ -11,10 +15,16 @@ class LocationSearch extends Component {
         }
     }
 
+    static navigationOptions = {
+        title: 'Search'
+    }
+
     handleTextEnter() {
         
         this.setState({location: toString()});
-        console.log(this.state.location)
+        console.log(this.state.location);
+   
+
         
     }
 
@@ -24,7 +34,7 @@ class LocationSearch extends Component {
                 this.setState({location: 'Washington, DC'})
             );
         } else {
-            return (this.state.location);
+            return ((this.state.location));
         }
     }
 
@@ -58,7 +68,7 @@ class LocationSearch extends Component {
                         />
                     }
                     title="Show Me The Choices"
-                    onPress={ (val) => (this.handleTextEnter(val))}
+                    onPress={() => <Results />}
                     />
                 </TouchableOpacity>
                 
@@ -71,10 +81,10 @@ class LocationSearch extends Component {
 
 const styles = StyleSheet.create({
     locationSearch: {
-        color: 'white',
-        backgroundColor: '#28a6bb',
+        color: '#000',
+        backgroundColor: '#fff',
     }
 })
 
 
-export default LocationSearch;
+export default NewLocationSearch;

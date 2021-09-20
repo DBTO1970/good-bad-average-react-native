@@ -5,6 +5,11 @@ import { Card } from 'react-native-elements';
 
 
 class About extends Component {
+    
+    static navigationOptions = {
+        title: 'About'
+    }
+
     render () {
         return (
             <View  >
