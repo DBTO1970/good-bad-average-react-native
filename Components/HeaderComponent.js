@@ -27,18 +27,17 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        
+        marginTop: 0,
         backgroundColor: '#28a6bb',
         alignItems: 'center',
-        
-        paddingTop: 30,
+        paddingTop: 0,
     },
     headerImage: {
-        height:100,
-        width:100,
+        height:60,
+        width:60,
+        
+        marginTop: 10,
 
-        marginTop: 20,
-        // justifyContent: 'center',
         
         
     },

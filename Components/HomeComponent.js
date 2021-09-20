@@ -9,8 +9,8 @@ class Home extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Header styel={{top: 2}}/>
+      <View style={{ flex: 1, alignItems: 'center'}}>
+        <Header style={{top: 2, marginBottom: 5}}/>
         <NewLocationSearch />
       </View>
     );

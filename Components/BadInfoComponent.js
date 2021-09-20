@@ -9,7 +9,7 @@ import { BadBaseUrl } from '../Shared/BadBaseUrl';
 function MakeCard({business})  {
     if(business) {
     return(
-        <View>
+        <View style={{backgroundColor: 'red'}}>
             
             <Card>
                 <Text>The Bad</Text>

@@ -9,9 +9,9 @@ import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
 function MakeCard({business})  {
     if(business) {
     return(
-        <View>
+        <View style={{backgroundColor: 'green'}}>
             
-            <Card>
+            <Card >
                 <Text>The Good</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
