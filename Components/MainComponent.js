@@ -8,7 +8,7 @@ import BadInfo from './BadInfoComponent';
 import AverageInfo from './AverageInfoComponent';
 import LocationSearch from './LocationSearchComponent';
 import { createAppContainer } from 'react-navigation';
-import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
+
 
 class Main extends Component {
     

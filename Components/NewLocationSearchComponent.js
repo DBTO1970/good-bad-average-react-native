@@ -3,11 +3,6 @@ import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import Results from './ResultsComponent';
 
-
-
-
-
-
 class LocationSearch extends Component {
     constructor(props) {
         super(props);
