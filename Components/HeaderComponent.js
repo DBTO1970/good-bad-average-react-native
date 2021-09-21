@@ -11,14 +11,14 @@ class Header extends Component {
                     source={require('./images/logo.png')}
                     style={styles.headerImage}
                 />
-                <Text
-                    style={styles.headerText}>
-                    The Good, The Bad, & The Average
-                </Text>
-                
+               
+                    <Text style={styles.headerText}>The Good, </Text>
+                    <Text style={styles.headerText}>The Bad &</Text>
+                    <Text style={styles.headerText}>The Average</Text>
+            
                 <Text style={styles.headerSubText}>
                     Find the best, worst,{'\n'}
-                     and most average-rated restaurant
+                     and most average-rated restaurants{'\n'} near you
                 </Text>
             </View>
         );
@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#28a6bb',
         alignItems: 'center',
         paddingTop: 0,
+        width: '100%',
     },
     headerImage: {
         height:60,
         width:60,
-        
         marginTop: 10,
 
         
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         textAlign: 'center',
-        marginTop: 20,
+        marginTop: 5,
         marginLeft: 10,
         marginRight: 10,
-        marginBottom: 10
+        marginBottom: 5
     },
     image: {
         flex: 1,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     headerSubText: {
         color: '#fff',
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
         marginLeft: 10,

@@ -5,21 +5,9 @@ import GoodInfo from './GoodInfoComponent';
 import BadInfo from './BadInfoComponent';
 import AverageInfo from './AverageInfoComponent';
 import { ScrollView } from 'react-native-gesture-handler';
-import { render } from 'react-dom';
+
 // import { render } from 'react-dom';
 
-function setLocation({location}) {
-    
-    return(
-        <View>
-            <ScrollView>
-                <GoodInfo location={location} />
-                <BadInfo location={location} />
-                <AverageInfo location={location} />
-            </ScrollView>
-        </View>
-    );
-}
 
 class NewLocationSearch extends Component {
     constructor(props) {
@@ -29,9 +17,7 @@ class NewLocationSearch extends Component {
         }
     }
 
-    static navigationOptions = {
-        title: 'Search'
-    }
+
 
     // handleTextEnter() {
         
@@ -46,19 +32,36 @@ class NewLocationSearch extends Component {
         if (!this.state.location) {
             return (
                 this.setState({location: 'Washington, DC'})
+                
             );
+            
         } else {
             return ((this.state.location));
         }
     }
     componentDidUpdate() {
         return ((this.state.location));
+        
     }
+
+    // handleSetLocation({location}) {
+        
+    //     return(
+            
+    //             <View>
+    //                 <GoodInfo location={location} />
+    //                 {/* <BadInfo location={location} />
+    //                 <AverageInfo location={location} /> */}
+    //             </View>
+            
+    //     );
+    // }
+    
 
 
 
     render(){
-      
+        
         return(
             
             <View >
@@ -79,23 +82,20 @@ class NewLocationSearch extends Component {
                         icon={
                             <Icon
                             name="search"
-                            size={26}
+                            size={18}
                             color="white"
                             
                             />
                         }
                         title="Show Me The Choices"
-                        onPress={ () => setLocation(this.state.location) }
+                        onPress={ 
+                                () => console.log(this.state.location)
+                            }
                         />
+                        {/* Need to figure out onPress */}
                     </TouchableOpacity>
                 </View>
-                <View>
-                   
-                        <GoodInfo location={this.state.location.location} />
-                        <BadInfo location={this.state.location.location} />
-                        <AverageInfo location={this.state.location.location} />
-                   
-                </View>
+                
                 
                 </ScrollView>
         </View>

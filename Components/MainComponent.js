@@ -5,7 +5,7 @@ import { StyleSheet,
 import Home from './HomeComponent';
 import About from './AboutComponent';
 import NewLocationSearch from './NewLocationSearchComponent';
-import Results from './ResultsComponent';
+
 import { Icon } from 'react-native-elements';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, 
@@ -184,8 +184,9 @@ class Main extends Component {
                         paddingTop: 
                             Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
                     }} >
-                    <AppNavigator />
                     
+                        <AppNavigator />
+                  
                 </View>
                 
            

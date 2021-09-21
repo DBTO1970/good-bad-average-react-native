@@ -46,7 +46,7 @@ class AverageInfo extends Component {
     componentDidMount() {
         
         const axios = require('axios');
-        console.log('component did mount');
+       
         const config = {
             method: 'get',
             url: APIBaseUrl + BadBaseUrl + this.state.location + '"&sort_by=rating&limit=50',
