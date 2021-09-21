@@ -62,6 +62,7 @@ class NewLocationSearch extends Component {
         return(
             
             <View >
+             <ScrollView>
                 <View style={styles.locationSearch}>
                     <TextInput
                         style={{marginLeft: 10, textAlign: 'center'}} 
@@ -88,9 +89,15 @@ class NewLocationSearch extends Component {
                         />
                     </TouchableOpacity>
                 </View>
+                <View>
+                   
+                        <GoodInfo location={this.state.location.location} />
+                        <BadInfo location={this.state.location.location} />
+                        <AverageInfo location={this.state.location.location} />
+                   
+                </View>
                 
-                
-                
+                </ScrollView>
         </View>
         );
     }
