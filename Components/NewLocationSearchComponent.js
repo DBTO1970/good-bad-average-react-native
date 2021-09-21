@@ -5,7 +5,21 @@ import GoodInfo from './GoodInfoComponent';
 import BadInfo from './BadInfoComponent';
 import AverageInfo from './AverageInfoComponent';
 import { ScrollView } from 'react-native-gesture-handler';
-import Results from './ResultsComponent';
+import { render } from 'react-dom';
+// import { render } from 'react-dom';
+
+function setLocation({location}) {
+    
+    return(
+        <View>
+            <ScrollView>
+                <GoodInfo location={location} />
+                <BadInfo location={location} />
+                <AverageInfo location={location} />
+            </ScrollView>
+        </View>
+    );
+}
 
 class NewLocationSearch extends Component {
     constructor(props) {
@@ -19,14 +33,14 @@ class NewLocationSearch extends Component {
         title: 'Search'
     }
 
-    handleTextEnter() {
+    // handleTextEnter() {
         
-        this.setState({location: toString()});
-        console.log(this.state.location);
+    //     this.setState({location: toString()});
+    //     console.log(this.state.location);
    
 
         
-    }
+    // }
 
     componentDidMount(){
         if (!this.state.location) {
@@ -37,11 +51,14 @@ class NewLocationSearch extends Component {
             return ((this.state.location));
         }
     }
+    componentDidUpdate() {
+        return ((this.state.location));
+    }
 
 
 
     render(){
-        
+      
         return(
             
             <View >
@@ -56,21 +73,23 @@ class NewLocationSearch extends Component {
                         }
                         
                     />
-                </View>
-                <TouchableOpacity>
-                <Button
-                    icon={
-                        <Icon
-                        name="search"
-                        size={26}
-                        color="white"
-                        
+                   <TouchableOpacity>
+                    <Button
+                        icon={
+                            <Icon
+                            name="search"
+                            size={26}
+                            color="white"
+                            
+                            />
+                        }
+                        title="Show Me The Choices"
+                        onPress={ () => setLocation(this.state.location) }
                         />
-                    }
-                    title="Show Me The Choices"
-                    onPress={() => <Results />}
-                    />
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </View>
+                
+                
                 
         </View>
         );

@@ -37,7 +37,7 @@ class GoodInfoComponent extends Component {
         super(props);
         this.state = {
             business: null,
-            location: '',
+            location: props.location,
         };
     }
 
@@ -46,10 +46,11 @@ class GoodInfoComponent extends Component {
     componentDidMount() {
 
         const axios = require('axios');
-        console.log('component did mount');
+        console.log(this.state.location);
+        
         const config = {
             method: 'get',
-            url: APIBaseUrl + GoodBaseUrl + this.location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + GoodBaseUrl + this.state.location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'

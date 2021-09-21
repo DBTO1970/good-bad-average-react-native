@@ -7,7 +7,7 @@ import { BadBaseUrl } from '../Shared/BadBaseUrl';
 function MakeCard({business})  {
     if(business) {
     return(
-        <View style={{backgroundColor: 'gray'}}>
+        <View style={{backgroundColor: 'yellow'}}>
             
             <Card>
                 <Text>The Average</Text>
@@ -36,7 +36,7 @@ class AverageInfo extends Component {
         super(props);
         this.state = {
             business: null,
-            location: '',
+            location: props.location,
             
         };
     }
@@ -49,7 +49,7 @@ class AverageInfo extends Component {
         console.log('component did mount');
         const config = {
             method: 'get',
-            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + BadBaseUrl + this.state.location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'
@@ -73,9 +73,9 @@ class AverageInfo extends Component {
     
     render() {
         const business = this.state.business;
-        const location = this.state.location;
+        
         return (
-            <MakeCard business={business} location={location} />
+            <MakeCard business={business} />
             
         );
     }
