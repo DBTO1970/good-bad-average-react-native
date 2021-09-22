@@ -12,7 +12,7 @@ function MakeCard({business})  {
             <Card>
                 <Text>The Average</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
-                <Text style={{color: 'black'}}>{business.rating}</Text>
+                <Text style={{color: 'black'}}>Rating: {business.rating}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
                 {/* <Image source={business.image_url} /> */}
                 <Text>Location: {business.location.display_address}</Text>
@@ -49,7 +49,7 @@ class AverageInfo extends Component {
        
         const config = {
             method: 'get',
-            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&offset=100&limit=50',
+            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&offset=800&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'
