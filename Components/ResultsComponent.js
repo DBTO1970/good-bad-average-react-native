@@ -1,9 +1,7 @@
-import React, { Component, useState } from 'react';
-import { ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import GoodInfo from './GoodInfoComponent';
-import BadInfo from './BadInfoComponent';
-import AverageInfo from './AverageInfoComponent';
-import NewLocationSearch from './NewLocationSearchComponent';
+
 
 
 class Results extends Component {
@@ -12,21 +10,17 @@ class Results extends Component {
     static navigationOptions = {
         title: 'Results'
     }
-    componentDidMount(){
+    // componentDidMount(){
        
         
-    }
+    // }
     render(){
         
 
         return (
-            <ScrollView>
-                <GoodInfo location={this.location} />
-                <BadInfo location={this.location} />
-                <AverageInfo location={this.location} />
-                
-            </ScrollView>
-
+            <View>
+                <GoodInfo location='Texas' />
+            </View>
         );
     }
 }

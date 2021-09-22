@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { Card, Image } from 'react-native-elements';
+import { View, Text, Image} from 'react-native';
+import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
-import { BadBaseUrl } from '../Shared/BadBaseUrl';
+import { BadBaseUrl } from '../Shared/GoodBaseUrl';
+
+
 
 function MakeCard({business})  {
     if(business) {
     return(
-        <View style={{backgroundColor: 'yellow'}}>
+        <View style={{backgroundColor: 'red'}}>
             
-            <Card>
-                <Text>The Average</Text>
+            <Card >
+                <Text>The Bad</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
-                {/* <Image source={business.image_url} /> */}
+                
                 <Text>Location: {business.location.display_address}</Text>
-               
             </Card>
 
-        </View>);
+        </View>
+        );
     }
     return (
         <View>
@@ -31,25 +33,25 @@ function MakeCard({business})  {
 
 
 
-class AverageInfo extends Component {
+class BadInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             business: null,
             location: props.location,
-            
         };
     }
 
     
 
     componentDidMount() {
-        
+        console.log(this.state.location);
         const axios = require('axios');
-       
+        
+        
         const config = {
             method: 'get',
-            url: APIBaseUrl + BadBaseUrl + this.state.location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&offset=100&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'
@@ -60,7 +62,8 @@ class AverageInfo extends Component {
     .then((response) => {
         
         
-        this.setState({business: response.data.businesses[0]});
+        this.setState({business: response.data.businesses[(response.data.businesses.length) - 1]});
+        
         
 
     })
@@ -73,7 +76,6 @@ class AverageInfo extends Component {
     
     render() {
         const business = this.state.business;
-        
         return (
             <MakeCard business={business} />
             
@@ -83,4 +85,4 @@ class AverageInfo extends Component {
 
 }
 
-export default AverageInfo;
+export default BadInfo;

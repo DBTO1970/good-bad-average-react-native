@@ -5,7 +5,7 @@ import { StyleSheet,
 import Home from './HomeComponent';
 import About from './AboutComponent';
 import NewLocationSearch from './NewLocationSearchComponent';
-
+import Results from './ResultsComponent';
 import { Icon } from 'react-native-elements';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, 
@@ -161,6 +161,7 @@ const MainNavigator = createDrawerNavigator(
         }
 
     },
+
     {
         initialRouteName: 'Home',
         drawerBackgroundColor: '#d1d1d1',

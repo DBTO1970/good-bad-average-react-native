@@ -32,12 +32,12 @@ function MakeCard({business})  {
 
 
 
-class GoodInfoComponent extends Component {
+class GoodInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
             business: null,
-            location: '',
+            location: props.location,
         };
     }
 
@@ -50,7 +50,7 @@ class GoodInfoComponent extends Component {
         
         const config = {
             method: 'get',
-            url: APIBaseUrl + GoodBaseUrl + this.location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + GoodBaseUrl + this.props.location + '"&sort_by=rating&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'
@@ -62,7 +62,7 @@ class GoodInfoComponent extends Component {
         
         
         this.setState({business: response.data.businesses[0]});
-        console.log(this.state.location);
+        
         
 
     })
@@ -84,4 +84,4 @@ class GoodInfoComponent extends Component {
 
 }
 
-export default GoodInfoComponent;
+export default GoodInfo;

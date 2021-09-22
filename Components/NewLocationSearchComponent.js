@@ -3,7 +3,6 @@ import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import GoodInfo from './GoodInfoComponent';
 import BadInfo from './BadInfoComponent';
-import AverageInfo from './AverageInfoComponent';
 import { ScrollView } from 'react-native-gesture-handler';
 
 // import { render } from 'react-dom';
@@ -16,17 +15,6 @@ class NewLocationSearch extends Component {
             location: '',
         }
     }
-
-
-
-    // handleTextEnter() {
-        
-    //     this.setState({location: toString()});
-    //     console.log(this.state.location);
-   
-
-        
-    // }
 
     componentDidMount(){
         if (!this.state.location) {
@@ -50,8 +38,6 @@ class NewLocationSearch extends Component {
             
     //             <View>
     //                 <GoodInfo location={location} />
-    //                 {/* <BadInfo location={location} />
-    //                 <AverageInfo location={location} /> */}
     //             </View>
             
     //     );
@@ -65,7 +51,7 @@ class NewLocationSearch extends Component {
         return(
             
             <View >
-             <ScrollView>
+             
                 <View style={styles.locationSearch}>
                     <TextInput
                         style={{marginLeft: 10, textAlign: 'center'}} 
@@ -94,10 +80,13 @@ class NewLocationSearch extends Component {
                         />
                         {/* Need to figure out onPress */}
                     </TouchableOpacity>
-                </View>
+                <ScrollView>
+                    <GoodInfo location='Texas' />
+                    <BadInfo location='Texas' />
                 
                 
                 </ScrollView>
+            </View>
         </View>
         );
     }

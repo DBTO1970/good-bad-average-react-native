@@ -13,7 +13,7 @@ class Header extends Component {
                 />
                
                     <Text style={styles.headerText}>The Good, </Text>
-                    <Text style={styles.headerText}>The Bad &</Text>
+                    <Text style={styles.headerText}>The Bad{'\n'} &</Text>
                     <Text style={styles.headerText}>The Average</Text>
             
                 <Text style={styles.headerSubText}>
