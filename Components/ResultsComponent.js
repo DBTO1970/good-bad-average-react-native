@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import GoodInfo from './GoodInfoComponent';
-
+import BadInfo from './BadInfoComponent';
+import AverageInfo from './AverageInfoComponent';
+// import { ScrollView } from 'react-native-gesture-handler';
+import NewLocationSearch from './NewLocationSearchComponent';
 
 
 class Results extends Component {
@@ -15,11 +18,14 @@ class Results extends Component {
         
     // }
     render(){
-        
-
+        const thisLocation = NewLocationSearch.location;
         return (
             <View>
-                <GoodInfo location='Texas' />
+                <ScrollView>
+                    <GoodInfo location={thisLocation} />
+                    <BadInfo location='Texas' />
+                    <AverageInfo location='Texas' />
+                </ScrollView>
             </View>
         );
     }

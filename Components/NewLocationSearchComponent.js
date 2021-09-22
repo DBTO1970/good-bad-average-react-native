@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
-import GoodInfo from './GoodInfoComponent';
-import BadInfo from './BadInfoComponent';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Button, Icon, ScrollView } from 'react-native-elements';
+// import GoodInfo from './GoodInfoComponent';
+// import BadInfo from './BadInfoComponent';
+// import AverageInfo from './AverageInfoComponent';
+import Results from './ResultsComponent';
+
 
 // import { render } from 'react-dom';
 
@@ -50,7 +52,7 @@ class NewLocationSearch extends Component {
         
         return(
             
-            <View >
+            <View>
              
                 <View style={styles.locationSearch}>
                     <TextInput
@@ -76,18 +78,17 @@ class NewLocationSearch extends Component {
                         title="Show Me The Choices"
                         onPress={ 
                                 () => console.log(this.state.location)
+                               
                             }
                         />
                         {/* Need to figure out onPress */}
                     </TouchableOpacity>
-                <ScrollView>
-                    <GoodInfo location='Texas' />
-                    <BadInfo location='Texas' />
-                
-                
-                </ScrollView>
+                   
+                        <Results />
+                </View>
+
+                 
             </View>
-        </View>
         );
     }
     

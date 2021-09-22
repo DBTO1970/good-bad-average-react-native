@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image} from 'react-native';
 import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
-import { BadBaseUrl } from '../Shared/GoodBaseUrl';
+import { BadBaseUrl } from '../Shared/BadBaseUrl';
 
 
 
@@ -50,7 +50,7 @@ class BadInfo extends Component {
         
         const config = {
             method: 'get',
-            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&limit=50',
+            url: APIBaseUrl + BadBaseUrl + this.props.location + '"&sort_by=rating&offset=100&limit=50',
             headers: { 
                 'Authorization': 
                 'Bearer Vr28kW7GpAtGcOw15EdaSeZihu3gKIOGjTTDqJQ1Su1ISi_SePjG2-F0EXAOokFbHIb8xE7u8mEnul_PSUbKUuPolY57iVOq9flTyg21iXwTNjeyl6FSopi_tw8YYXYx'

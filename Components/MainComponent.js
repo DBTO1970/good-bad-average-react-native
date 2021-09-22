@@ -60,28 +60,28 @@ const HomeNavigator = createStackNavigator(
 //     }
 // );
 
-// const ResultsNavigator = createStackNavigator(
-//     {
-//         Results: { screen: Results }
-//     },
-//     {
-//         defaultNavigationOptions: ({navigation}) => ({
-//             headerStyle: {
-//                 backgroundColor: '#28a6bb'
-//             },
-//             headerTintColor: '#fff',
-//             headerTitleStyle: { 
-//                 color: '#fff'
-//             },
-//             headerLeft: <Icon 
-//                 name='list-alt'
-//                 type= 'font-awesome'
-//                 iconStyle={styles.stackIcon}
-//                 onPress={() => navigation.toggleDrawer()}
-//                 />
-//         })
-//     }
-// );
+const ResultsNavigator = createStackNavigator(
+    {
+        Results: { screen: Results }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#28a6bb'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: { 
+                color: '#fff'
+            },
+            headerLeft: <Icon 
+                name='list-alt'
+                type= 'font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+                />
+        })
+    }
+);
 
 const AboutNavigator = createStackNavigator(
     {
@@ -145,7 +145,19 @@ const MainNavigator = createDrawerNavigator(
                 )
             }
         },
-        
+        Results: {
+            screen: ResultsNavigator,
+            navigationOptions: {
+                drawerIcon: ({tintColor}) => (
+                    <Icon 
+                        name='info-circle'
+                        type='font-awesome'
+                        size={24}
+                        color={tintColor}
+                        />
+                )
+            }
+        },
         About: {
             screen: AboutNavigator,
             navigationOptions: {
