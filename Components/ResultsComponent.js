@@ -6,10 +6,15 @@ import AverageInfo from './AverageInfoComponent';
 // import { ScrollView } from 'react-native-gesture-handler';
 import NewLocationSearch from './NewLocationSearchComponent';
 
+const mapStateToProps = state => {
+    return {
+        location: state.location,
+        
+    };
+};
 
 class Results extends Component {
   
-
     static navigationOptions = {
         title: 'Results'
     }

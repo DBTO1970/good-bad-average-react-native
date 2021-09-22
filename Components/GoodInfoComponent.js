@@ -4,8 +4,6 @@ import { Card } from 'react-native-elements';
 import { APIBaseUrl } from '../Shared/APIBaseUrl';
 import { GoodBaseUrl } from '../Shared/GoodBaseUrl';
 
-
-
 function MakeCard({business})  {
     if(business) {
     return(
@@ -14,8 +12,8 @@ function MakeCard({business})  {
             <Card >
                 <Text>The Good</Text>
                 <Text style={{color: 'black'}}>{business.name}</Text>
+                <Text style={{color: 'black'}}>Rating: {business.rating}</Text>
                 <Text>Category: {business.categories[0].title}</Text>
-                
                 <Text>Location: {business.location.display_address}</Text>
             </Card>
 
