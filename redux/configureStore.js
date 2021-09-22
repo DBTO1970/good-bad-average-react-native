@@ -6,7 +6,9 @@ export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({ 
             search,
-            results
+            good,
+            bad,
+            average,
         }),
         applyMiddleware(thunk, logger)
         );

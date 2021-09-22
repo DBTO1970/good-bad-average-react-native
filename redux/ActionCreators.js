@@ -1,5 +1,7 @@
 import * as ActionTypes from './ActionTypes';
 
+
+
 export const fetchSearch = () => dispatch => {
     return fetch('search')
     .then(response => {
@@ -30,12 +32,10 @@ export const searchLocation = search => ({
     payload: search
 });
 
-export const fetchResults = () => dispatch => {
-    dispatch(resultsLoading());
-
-    return fetch('results')
+export const fetchGood = () => dispatch => {
+    return fetch('good')
     .then(response => {
-        if (response.ok) {
+        if(response.ok) {
             return response;
         } else {
             const error = new Error(`Error ${response.status}: ${response.statusText}`);
@@ -48,21 +48,6 @@ export const fetchResults = () => dispatch => {
         throw errMess;
     })
     .then(response => response.json())
-    .then(results => dispatch(giveResults(results)))
-    .catch(error => dispatch(resultsFailed(error.message)));
-};
-
-export const resultsLoading =() => ({
-    type: ActionTypes.RESULTS_LOADING
-});
-
-export const resultsFailed = () => ({
-    type: ActionTypes.RESULTS_FAILED,
-    payload: errMess
-});
-
-export const giveResults = () => ({
-    type: ActionTypes.GIVE_RESULTS,
-    payload: results
-});
-
+    .then(good => dispatch(getGood(good)))
+    .catch(error = dispatch(goodFailed(error.message)))
+}

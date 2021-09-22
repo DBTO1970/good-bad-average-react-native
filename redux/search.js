@@ -1,9 +1,9 @@
 import * as ActionTypes from './ActionTypes';
 
 export const search = ( state = {
-    
+    isLoading: true,
     errMess: null,
-    search: []}, action) => {
+    location: []}, action) => {
 
         switch (action.type) {
             case ActionTypes.SEARCH_LOCATION:
@@ -11,14 +11,17 @@ export const search = ( state = {
                     ...state, 
                     isLoading: false, 
                     errMess: null, 
-                    search: []
+                    location: []
                 };
             
             case ActionTypes.SEARCH_FAILED:
                 return {
-                    ...state, 
+                    ...state,
+                    isLoading: false, 
                     errMess: true, 
-                    search: []
+                    location: []
                 };
+            default:
+                return state;
         }
     }
